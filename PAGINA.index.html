@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaje por Europa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('imagenes/portada.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px 0;
+            color: #333;
+        }
+        
+        .seccion { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .activa { 
+            display: block; 
+        }
+        
+        button {
+            margin: 5px;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .contenedor-principal {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #3498db;
+            font-size: 1.8rem;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #e74c3c;
+            font-size: 1.4rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+        
+        .destino {
+            margin-bottom: 40px;
+            padding: 0 30px;
+        }
+        
+        .galeria {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .galeria img {
+            width: 30%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .galeria img:hover {
+            transform: scale(1.05);
+        }
+        
+        .separador {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #3498db, transparent);
+            margin: 30px auto;
+            width: 80%;
+        }
+        
+        .lista-consejos {
+            columns: 2;
+            column-gap: 40px;
+            margin: 20px 0;
+        }
+        
+        .lista-consejos li {
+            margin-bottom: 15px;
+            break-inside: avoid;
+        }
+        
+        .firma {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Estilos específicos para cada sección */
+        #inicio {
+            padding: 30px;
+        }
+        
+        #gastronomia .item-gastronomia {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        #cultura ul {
+            padding-left: 20px;
+        }
+        
+        #cultura li {
+            margin-bottom: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .galeria img {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .lista-consejos {
+                columns: 1;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div align="center" style="margin: 20px 0;">
+        <button style="background-color:#ffcc00;" onclick="mostrarSeccion('inicio')">🏠 Inicio</button>
+        <button style="background-color:#ffd700;" onclick="mostrarSeccion('gastronomia')">🍽️ Gastronomía</button>
+        <button style="background-color:#ffb347;" onclick="mostrarSeccion('cultura')">🎭 Cultura</button>
+        <button style="background-color:#90ee90;" onclick="mostrarSeccion('consejos')">💡 Consejos</button>
+    </div>
+
+    <div class="contenedor-principal">
+
+        <!-- SECCIÓN INICIO -->
+        <div id="inicio" class="seccion activa">
+            <div style="padding: 30px;">
+                <h1 align="center">✈️ VIAJA POR EUROPA CON TU MEJOR GUÍA 🌍</h1>
+                <h2 align="center"><i>*Un recorrido de ensueño por las ciudades más icónicas*</i></h2>
+                <center><img src="imagenes/europa.jpg" style="width: 100%; max-width: 600px; border-radius: 10px; margin: 20px 0;"></center>
+                <p align="center" style="font-size: 1.2rem;"><i>Desde las luces de París hasta los canales de Venecia, este viaje será una aventura inolvidable.</i></p>
+
+                <h2 align="center" style="color: #8e44ad;">🗺️ ITINERARIO PARA TI, VIAJERO 🗺️</h2>
+
+                <div class="destino">
+                    <h3 style="color: #3498db;">1. París, Francia</h3>
+                    <p>Es conocida como la Ciudad del Amor y la capital de la elegancia. Desde su majestuosa Torre Eiffel hasta las obras maestras del Museo del Louvre, cada rincón de la ciudad respira arte, historia y romance. Pasear por el río Sena al atardecer, disfrutar un café en Montmartre o contemplar la Catedral de Notre Dame hacen de París una experiencia inolvidable.</p>
+                    <div class="galeria">
+                        <img src="imagenes/paris.jpg" alt="París">
+                        <img src="imagenes/pira.jpg" alt="Torre Eiffel">
+                        <img src="imagenes/comida.jpg" alt="Comida francesa">
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+
+                <div class="destino">
+                    <h3 style="color: #3498db;">2. Ámsterdam, Países Bajos</h3>
+                    <p>Es una ciudad encantadora, famosa por sus canales serenos, flores coloridas y bicicletas que recorren cada calle. Explorar sus museos como el Rijksmuseum o la Casa de Ana Frank, recorrer los barrios antiguos, o relajarte en un paseo en barco por los canales, hace de esta ciudad una parada imperdible en Europa.</p>
+                    <div class="galeria">
+                        <img src="imagenes/comida.jpg" alt="Comida holandesa">
+                        <img src="imagenes/casas.jpg" alt="Casas de Ámsterdam">
+                        <img src="imagenes/bar.jpg" alt="Barco en canales">
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+
+                <div class="destino">
+                    <h3 style="color: #3498db;">3. Berlín, Alemania</h3>
+                    <p>Es una ciudad moderna y vibrante que conserva cicatrices de su historia con orgullo. Visita el Muro de Berlín y la Puerta de Brandeburgo, descubre su escena artística underground, y déjate llevar por la energía de sus barrios multiculturales. Es un destino que combina cultura, historia, innovación y diversidad.</p>
+                    <div class="galeria">
+                        <img src="imagenes/mura.jpg" alt="Muro de Berlín">
+                        <img src="imagenes/uni.jpg" alt="Universidad">
+                        <img src="imagenes/rio.jpg" alt="Río en Berlín">
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+
+                <div class="destino">
+                    <h3 style="color: #3498db;">4. Praga, República Checa</h3>
+                    <p>Es una joya medieval que parece salida de un cuento de hadas. Sus calles empedradas, castillos góticos y la magia del Reloj Astronómico hacen que perderse en esta ciudad sea una delicia. El Puente de Carlos y el Castillo de Praga te transportan a otra época, donde cada rincón tiene una historia que contar.</p>
+                    <div class="galeria">
+                        <img src="imagenes/plaza.jpg" alt="Plaza de Praga">
+                        <img src="imagenes/rios.jpg" alt="Río en Praga">
+                        <img src="imagenes/reloj.jpg" alt="Reloj Astronómico">
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+
+                <div class="destino">
+                    <h3 style="color: #3498db;">5. Venecia, Italia</h3>
+                    <p>Es una ciudad flotante única en el mundo, con sus románticos canales, góndolas que se deslizan lentamente y arquitectura renacentista que parece suspendida en el tiempo. Explora la Plaza de San Marcos, cruza el Puente de los Suspiros y prueba un gelato mientras navegas entre sus mágicas aguas.</p>
+                    <div class="galeria">
+                        <img src="imagenes/barco.jpg" alt="Góndolas en Venecia">
+                        <img src="imagenes/barcos.jpg" alt="Canales de Venecia">
+                        <img src="imagenes/venecia.jpg" alt="Vista de Venecia">
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+
+                <div class="destino">
+                    <h3 style="color: #3498db;">6. Barcelona, España</h3>
+                    <p>Es una explosión de colores, sabores y formas. Desde las obras maestras de Gaudí como la Sagrada Familia hasta sus animadas playas del Mediterráneo, la ciudad vibra con vida. Disfruta sus tapas, pasea por Las Ramblas, visita el Parque Güell y sumérgete en una mezcla única de cultura, arte y diversión.</p>
+                    <div class="galeria">
+                        <img src="imagenes/iglesia.jpg" alt="Sagrada Familia">
+                        <img src="imagenes/plazas.jpg" alt="Plaza en Barcelona">
+                        <img src="imagenes/barcelona.jpg" alt="Vista de Barcelona">
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+
+                <h2 align="center" style="color: #e74c3c;">📸 LOS MOMENTOS QUE MÁS RECORDARÁS 📸</h2>
+                <div style="text-align: center; margin: 30px 0;">
+                    <p style="font-size: 1.3rem; color: #e74c3c;">✨ Noche iluminada en la Torre Eiffel</p>
+                    <p style="font-size: 1.3rem; color: #f39c12;">✨ Atardecer en los canales de Ámsterdam</p>
+                    <p style="font-size: 1.3rem; color: #9b59b6;">✨ Pizza frente al Gran Canal de Venecia</p>
+                </div>
+
+                <p align="center" style="font-size: 1.4rem; font-style: italic; color: #3498db;">"Viajar es vivir dos veces."</p>
+                <p class="firma">Created by Steve Cárdenas | Viaja por Europa 🌍</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN GASTRONOMÍA -->
+        <div id="gastronomia" class="seccion">
+            <div style="padding: 30px;">
+                <h1 align="center" style="color: #c0392b;">🍷 Gastronomía Europea</h1>
+                <p align="center" style="font-size: 1.2rem;">
+                    <b>*Descubre los sabores únicos de cada ciudad que visitarás.*</b><br>
+                    <br>🍽️🌍 Desde el delicado aroma de un croissant recién horneado en París,<br>
+                    hasta el intenso sabor de una paella frente al mar en Barcelona.<br>
+                    <br><i>Europa no solo se recorre con los pies, también se saborea con el alma.</i> <br>🍽️🌍
+                </p>
+                
+                <div class="item-gastronomia">
+                    <h3 style="color: #c0392b; text-align: center;">Francia</h3>
+                    <p style="text-align: center;">Quesos, vinos, croissants, macarons, boeuf bourguignon, ratatouille, crêpes</p>
+                    <div style="text-align: center;">
+                        <img src="imagenes/comida_fran.jpg" style="width: 100%; max-width: 400px; border-radius: 10px;">
+                    </div>
+                </div>
+                
+                <div class="separador"></div>
+                
+                <div class="item-gastronomia">
+                    <h3 style="color: #c0392b; text-align: center;">Italia</h3>
+                    <p style="text-align: center;">Pasta, pizza, gelato, tiramisú, risotto, lasagna, cannoli</p>
+                    <div style="text-align: center;">
+                        <img src="imagenes/comida_ita.jpg" style="width: 100%; max-width: 400px; border-radius: 10px;">
+                    </div>
+                </div>
+                
+                <div class="separador"></div>
+                
+                <div class="item-gastronomia">
+                    <h3 style="color: #c0392b; text-align: center;">España</h3>
+                    <p style="text-align: center;">Tapas, paella, jamón ibérico, gazpacho, churros, tortilla española</p>
+                    <div style="text-align: center;">
+                        <img src="imagenes/comida_esp.jpg" style="width: 100%; max-width: 400px; border-radius: 10px;">
+                    </div>
+                </div>
+                
+                <div class="separador"></div>
+                
+                <div class="item-gastronomia">
+                    <h3 style="color: #c0392b; text-align: center;">Alemania</h3>
+                    <p style="text-align: center;">Salchichas, pretzels, cerveza artesanal, schnitzel, strudel, sauerkraut</p>
+                    <div style="text-align: center;">
+                        <img src="imagenes/comida_alem.jpg" style="width: 100%; max-width: 400px; border-radius: 10px;">
+                    </div>
+                </div>
+                
+                <div class="separador"></div>
+                
+                <div class="item-gastronomia">
+                    <h3 style="color: #c0392b; text-align: center;">Países Bajos</h3>
+                    <p style="text-align: center;">Stroopwafels, arenque, quesos (Gouda, Edam), bitterballen, poffertjes</p>
+                    <div style="text-align: center;">
+                        <img src="imagenes/comida_hol.jpg" style="width: 100%; max-width: 400px; border-radius: 10px;">
+                    </div>
+                </div>
+                
+                <p class="firma">Created by Steve Cárdenas | Viaja por Europa 🌍</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN CULTURA -->
+        <div id="cultura" class="seccion">
+            <div style="padding: 30px;">
+                <h1 align="center" style="color: #2980b9;">🎭 Cultura Europea</h1>
+                <p align="center" style="font-size: 1.2rem;">
+                    Europa es un mosaico cultural donde cada país cuenta una historia distinta a través de sus tradiciones, arte y arquitectura.
+                </p>
+                
+                <h3 style="color: #2980b9;">Francia</h3>
+                <p>Cuna del impresionismo, la moda y la literatura universal. Museos como el Louvre y el Musée d'Orsay exhiben joyas del arte. Eventos icónicos como el Festival de Cannes y la Semana de la Moda en París. Además, cuenta con monumentos históricos como la Torre Eiffel, el Palacio de Versalles y la Catedral de Notre-Dame. La gastronomía francesa también es Patrimonio de la Humanidad, y sus cafés han sido punto de encuentro de intelectuales como Sartre o Simone de Beauvoir.</p>
+                
+                <div class="separador"></div>
+                
+                <h3 style="color: #2980b9;">Italia</h3>
+                <p>Tierra del Renacimiento con obras maestras de Da Vinci, Miguel Ángel, Rafael y Botticelli. Cuna de la ópera y la arquitectura clásica romana. Las ruinas del Coliseo, el Vaticano, y la Basílica de San Pedro son símbolos de su herencia. Ciudades como Florencia, Roma y Venecia son museos al aire libre. Su cine neorrealista ha influido a generaciones y directores como Fellini o Pasolini marcaron época.</p>
+                
+                <div class="separador"></div>
+                
+                <h3 style="color: #2980b9;">Alemania</h3>
+                <p>País de profundas raíces filosóficas (Kant, Hegel, Nietzsche), musicales (Beethoven, Bach, Wagner), y literarias (Goethe, Kafka, Hesse). Sus festivales como el Oktoberfest y sus castillos medievales como Neuschwanstein evocan una Alemania tradicional y encantadora. También es referente en innovación, diseño industrial y tecnología. Berlín destaca por su escena alternativa y su historia reciente como símbolo de la reunificación europea.</p>
+                
+                <div class="separador"></div>
+                
+                <h3 style="color: #2980b9;">España</h3>
+                <p>Patria del flamenco, las sevillanas y una diversidad cultural inmensa. Las fiestas populares como San Fermín, La Tomatina y Las Fallas reflejan su espíritu festivo. La obra de Gaudí en Barcelona, como la Sagrada Familia y el Parque Güell, son patrimonio artístico universal. La literatura del Siglo de Oro (Cervantes, Lope de Vega) y el cine de Almodóvar siguen cautivando al mundo. Su pluralidad regional (vasca, catalana, andaluza, gallega) enriquece su identidad cultural.</p>
+                
+                <div class="separador"></div>
+                
+                <h3 style="color: #2980b9;">Países Bajos</h3>
+                <p>Cuna de genios como Rembrandt, Vermeer y Van Gogh. Un país conocido por su apertura, tolerancia, diversidad cultural y derechos sociales avanzados. Ámsterdam es símbolo de libertad creativa, con museos de renombre y arquitectura sostenible. Sus tulipanes, molinos de viento y paisajes inundados muestran su armonía con la naturaleza. Además, es pionero en urbanismo moderno y movilidad ecológica gracias al uso de bicicletas.</p>
+                
+                <div style="text-align: center; margin: 30px 0;">
+                    <img src="imagenes/cultura.jpg" style="width: 100%; max-width: 600px; border-radius: 10px;">
+                </div>
+                
+                <p class="firma">Created by Steve Cárdenas | Viaja por Europa 🌍</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN CONSEJOS -->
+        <div id="consejos" class="seccion">
+            <div style="padding: 30px;">
+                <h1 align="center" style="color: #27ae60;">💡 Consejos para tu Viaje</h1>
+                <p align="center" style="font-size: 1.2rem;">
+                    Algunos tips útiles para disfrutar tu aventura europea al máximo.
+                </p>
+                
+                <ul class="lista-consejos">
+                    <li>🔒 Cuida tus pertenencias en lugares turísticos.</li>
+                    <li>💳 Lleva algo de efectivo y una tarjeta internacional.</li>
+                    <li>📱 Usa apps como Google Maps, Rome2Rio o Duolingo.</li>
+                    <li>🎒 Empaca ligero y con ropa cómoda.</li>
+                    <li>📸 No olvides una buena cámara o móvil.</li>
+                    <li>🗣 Aprende algunas frases básicas en el idioma local.</li>
+                    <li>🚆 Aprovecha el transporte público o trenes regionales.</li>
+                    <li>🕰 Llega con tiempo a aeropuertos y estaciones.</li>
+                    <li>🌦 Consulta el clima antes de cada día de excursión.</li>
+                    <li>🧴 Lleva adaptador de enchufe y cargador portátil.</li>
+                    <li>📅 Planea tu itinerario, pero deja espacio para improvisar.</li>
+                    <li>😷 Lleva mascarilla y gel antibacterial por precaución.</li>
+                    <li>🌍 Respeta las costumbres y normas locales.</li>
+                    <li>🧠 Infórmate sobre los horarios, propinas y normas de cada país.</li>
+                    <li>🛂 Guarda copias digitales de tus documentos importantes.</li>
+                    <li>🏨 Reserva alojamiento cerca de centros históricos.</li>
+                    <li>🍽️ Prueba la comida local en lugares no turísticos.</li>
+                    <li>🚶‍♂️ Camina tanto como puedas para descubrir rincones únicos.</li>
+                    <li>📚 Investiga sobre la historia de los lugares que visitarás.</li>
+                    <li>🎟️ Compra entradas con anticipación para atracciones populares.</li>
+                </ul>
+                
+                <div style="text-align: center; margin: 30px 0;">
+                    <img src="imagenes/tips.jpg" style="width: 100%; max-width: 600px; border-radius: 10px;">
+                </div>
+                
+                <p class="firma">Created by Steve Cárdenas | Viaja por Europa 🌍</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mostrarSeccion(id) {
+            const secciones = document.querySelectorAll('.seccion');
+            secciones.forEach(sec => sec.classList.remove('activa'));
+            document.getElementById(id).classList.add('activa');
+            
+            // Desplazarse suavemente al principio de la sección
+            document.querySelector('.contenedor-principal').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
